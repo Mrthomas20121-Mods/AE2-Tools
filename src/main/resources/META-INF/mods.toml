@@ -1,0 +1,30 @@
+modLoader = "javafml"
+loaderVersion = "[40,)"
+license = "MIT License"
+issueTrackerURL = "https://github.com/Mrthomas20121/AE2-Tools/issues"
+
+[[mods]]
+modId = "ae2_tools"
+version = "1.0.0"
+displayName = "AE2 Tools Complement"
+displayURL = "https://www.curseforge.com/minecraft/mc-mods/ae2_tools"
+#logoFile="tinkers_reforged_logo.png"
+credits = "Team CoFH"
+authors = "Mrthomas20121"
+description = '''
+Add tools complement tools to AE2
+'''
+
+[[dependencies.ae2_tools]]
+    modId = "forge"
+    mandatory = true
+    versionRange = "[43.1.1,)"
+    ordering = "NONE"
+    side = "BOTH"
+
+[[dependencies.ae2_tools]]
+    modId = "minecraft"
+    mandatory = true
+    versionRange = "[1.19.2,)"
+    ordering = "NONE"
+    side = "BOTH"

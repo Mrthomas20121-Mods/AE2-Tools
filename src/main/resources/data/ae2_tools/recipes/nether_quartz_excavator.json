@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "X": {
+      "tag": "forge:gems/nether_quartz"
+    },
+    "Y": {
+      "tag": "forge:storage_blocks/nether_quartz"
+    }
+  },
+  "pattern": [
+    " Y ",
+    "X#X",
+    " # "
+  ],
+  "result": {
+    "item": "ae2_tools:nether_quartz_excavator"
+  }
+}

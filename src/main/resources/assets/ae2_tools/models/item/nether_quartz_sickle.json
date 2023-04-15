@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "ae2_tools:item/nether_quartz_sickle"
+  }
+}
