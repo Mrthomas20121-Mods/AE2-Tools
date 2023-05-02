@@ -1,2 +1,2 @@
-# Thermal Extra
-Add new Augments and Other Stuff to Thermal Serie.
+# AE2 Tool's Complement
+Bridge AE2 and Tool's Complement

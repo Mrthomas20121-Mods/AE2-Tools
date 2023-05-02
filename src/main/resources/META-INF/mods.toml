@@ -5,7 +5,7 @@ issueTrackerURL = "https://github.com/Mrthomas20121/AE2-Tools/issues"
 
 [[mods]]
 modId = "ae2_tools"
-version = "1.0.0"
+version = "1.0.2"
 displayName = "AE2 Tools Complement"
 displayURL = "https://www.curseforge.com/minecraft/mc-mods/ae2_tools"
 #logoFile="tinkers_reforged_logo.png"
