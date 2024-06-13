@@ -1,11 +1,12 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "equipment",
   "key": {
     "#": {
       "item": "minecraft:stick"
     },
     "X": {
-      "tag": "forge:gems/certus_quartz"
+      "tag": "ae2:all_nether_quartz"
     }
   },
   "pattern": [
@@ -14,6 +15,7 @@
     "#X "
   ],
   "result": {
-    "item": "ae2_tools:certus_quartz_sickle"
-  }
+    "item": "ae2_tools:nether_quartz_sickle"
+  },
+  "show_notification": true
 }

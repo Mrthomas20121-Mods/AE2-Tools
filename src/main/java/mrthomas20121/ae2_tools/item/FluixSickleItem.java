@@ -2,7 +2,7 @@ package mrthomas20121.ae2_tools.item;
 
 import appeng.core.localization.GuiText;
 import appeng.hooks.IntrinsicEnchantItem;
-import cofh.core.item.SickleItem;
+import cofh.core.common.item.SickleItem;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;

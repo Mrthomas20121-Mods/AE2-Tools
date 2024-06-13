@@ -1,11 +1,12 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "equipment",
   "key": {
     "#": {
       "item": "minecraft:stick"
     },
     "X": {
-      "tag": "forge:gems/quartz"
+      "tag": "ae2:all_certus_quartz"
     }
   },
   "pattern": [
@@ -13,6 +14,7 @@
     "#"
   ],
   "result": {
-    "item": "ae2_tools:nether_quartz_knife"
-  }
+    "item": "ae2_tools:certus_quartz_knife"
+  },
+  "show_notification": true
 }

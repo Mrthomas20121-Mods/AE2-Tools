@@ -1,11 +1,12 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "equipment",
   "key": {
     "#": {
       "item": "minecraft:stick"
     },
     "X": {
-      "tag": "forge:gems/quartz"
+      "tag": "ae2:all_nether_quartz"
     },
     "Y": {
       "tag": "forge:storage_blocks/quartz"
@@ -18,5 +19,6 @@
   ],
   "result": {
     "item": "ae2_tools:nether_quartz_hammer"
-  }
+  },
+  "show_notification": true
 }

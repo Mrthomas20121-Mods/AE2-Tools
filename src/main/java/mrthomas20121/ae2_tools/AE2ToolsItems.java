@@ -2,26 +2,24 @@ package mrthomas20121.ae2_tools;
 
 import appeng.items.tools.fluix.FluixToolType;
 import appeng.items.tools.quartz.QuartzToolType;
-import cofh.core.item.ExcavatorItem;
-import cofh.core.item.HammerItem;
-import cofh.core.item.KnifeItem;
-import cofh.core.item.SickleItem;
+import cofh.core.common.item.ExcavatorItem;
+import cofh.core.common.item.HammerItem;
+import cofh.core.common.item.KnifeItem;
+import cofh.core.common.item.SickleItem;
+import cofh.lib.util.DeferredRegisterCoFH;
 import mrthomas20121.ae2_tools.item.FluixExcavatorItem;
 import mrthomas20121.ae2_tools.item.FluixHammerItem;
 import mrthomas20121.ae2_tools.item.FluixKnifeItem;
 import mrthomas20121.ae2_tools.item.FluixSickleItem;
 import net.minecraft.world.item.Item;
-import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
-import static cofh.toolscomplement.ToolsComplement.TCOM_GROUP;
-
 public class AE2ToolsItems {
 
-    public static DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, AE2Tools.MOD_ID);
+    public static DeferredRegisterCoFH<Item> ITEMS = DeferredRegisterCoFH.create(ForgeRegistries.ITEMS, AE2Tools.MOD_ID);
 
-    public static Item.Properties properties = new Item.Properties().tab(TCOM_GROUP);
+    public static Item.Properties properties = new Item.Properties();
 
     // Certus Quartz Set
     public static RegistryObject<Item> CERTUS_QUARTZ_EXCAVATOR = ITEMS.register("certus_quartz_excavator", () -> new ExcavatorItem(QuartzToolType.CERTUS.getToolTier(), properties));

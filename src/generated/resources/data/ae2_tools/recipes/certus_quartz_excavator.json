@@ -1,14 +1,15 @@
 {
   "type": "minecraft:crafting_shaped",
+  "category": "equipment",
   "key": {
     "#": {
       "item": "minecraft:stick"
     },
     "X": {
-      "tag": "forge:gems/quartz"
+      "tag": "ae2:all_certus_quartz"
     },
     "Y": {
-      "tag": "forge:storage_blocks/quartz"
+      "tag": "forge:storage_blocks/certus_quartz"
     }
   },
   "pattern": [
@@ -17,6 +18,7 @@
     " # "
   ],
   "result": {
-    "item": "ae2_tools:nether_quartz_excavator"
-  }
+    "item": "ae2_tools:certus_quartz_excavator"
+  },
+  "show_notification": true
 }

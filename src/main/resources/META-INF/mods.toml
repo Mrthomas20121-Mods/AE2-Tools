@@ -5,7 +5,7 @@ issueTrackerURL = "https://github.com/Mrthomas20121/AE2-Tools/issues"
 
 [[mods]]
 modId = "ae2_tools"
-version = "1.0.2"
+version = "1.0.3"
 displayName = "AE2 Tools Complement"
 displayURL = "https://www.curseforge.com/minecraft/mc-mods/ae2_tools"
 #logoFile="tinkers_reforged_logo.png"
@@ -25,6 +25,12 @@ Add tools complement tools to AE2
 [[dependencies.ae2_tools]]
     modId = "minecraft"
     mandatory = true
-    versionRange = "[1.19.2,)"
+    versionRange = "[1.20.1,)"
     ordering = "NONE"
+    side = "BOTH"
+[[dependencies.ae2_tools]]
+    modId = "tools_complement"
+    mandatory = true
+    versionRange = "[1.20.1,)"
+    ordering = "BEFORE"
     side = "BOTH"

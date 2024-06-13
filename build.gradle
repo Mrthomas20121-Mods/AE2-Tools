@@ -1,30 +1,16 @@
-buildscript {
-    repositories {
-        maven { url = 'https://maven.minecraftforge.net/' }
-        mavenCentral()
-        maven {
-            name = "sonatype"
-            url = "https://oss.sonatype.org/content/repositories/snapshots/"
-        }
-        maven {
-            url "https://plugins.gradle.org/m2/"
-        }
-    }
-    dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
-    }
+plugins {
+    id 'net.neoforged.gradle' version '[6.0.18,6.2)'
+    id 'org.parchmentmc.librarian.forgegradle' version '1.+'
 }
-apply plugin: 'net.minecraftforge.gradle'
-apply plugin: 'eclipse'
 
 version = mod_version
 group = 'mrthomas20121.ae2_tools'
-archivesBaseName = 'AE2 Tools Complement 1.19.2'
+archivesBaseName = "AE2 Tools Complement ${mc_version}"
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 minecraft {
-    mappings channel: 'official', version: '1.18.2'
+    mappings channel: 'official', version: mc_version
 
     runs {
         client {
@@ -86,7 +72,10 @@ minecraft {
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
-    maven { url = 'https://maven.minecraftforge.net/' }
+    maven {
+        name 'Thermal Maven'
+        url 'https://maven.covers1624.net/'
+    }
     maven {
         name = "Modmaven"
         url = uri("https://modmaven.dev/")
@@ -94,10 +83,6 @@ repositories {
         content {
             includeGroup("appeng")
         }
-    }
-    maven {
-        name 'Thermal Maven'
-        url 'https://maven.covers1624.net/'
     }
     maven { // TOP
         url 'https://maven.tterrag.com/'
@@ -121,7 +106,7 @@ repositories {
 }
 
 dependencies {
-    minecraft "net.minecraftforge:forge:${mc_version}-${forge_version}"
+    minecraft "net.neoforged:forge:${mc_version}-${neoforge_version}"
 
     implementation(fg.deobf("appeng:appliedenergistics2-forge:${ae2_version}"))
 
@@ -133,10 +118,11 @@ dependencies {
     runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}-common:${jei_version}")
     runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}-forge:${jei_version}")
 
-    implementation fg.deobf("com.teamcofh:cofh_core:${mc_version}-${cofh_core_version}.+")
-    implementation fg.deobf("com.teamcofh:thermal_core:${mc_version}-${thermal_core_version}.+")
-    implementation fg.deobf("com.teamcofh:thermal_expansion:${mc_version}-${thermal_expansion_version}.+")
-    implementation fg.deobf("curse.maven:tools-complement-552642:4382367")
+    implementation fg.deobf("com.teamcofh:cofh_core:${mc_version}-${cofh_core_version}")
+    implementation fg.deobf("com.teamcofh:thermal_core:${mc_version}-${thermal_core_version}")
+    implementation fg.deobf("com.teamcofh:thermal_foundation:${mc_version}-${thermal_foundation_version}")
+    implementation fg.deobf("com.teamcofh:thermal_expansion:${mc_version}-${thermal_expansion_version}")
+    implementation fg.deobf("curse.maven:tools-complement-552642:${tools_complement_version}")
 }
 
 jar {
