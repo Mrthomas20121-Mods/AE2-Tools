@@ -1,6 +1,11 @@
 package mrthomas20121.ae2_tools;
 
-import mrthomas20121.ae2_tools.data.AE2ToolsRecipeProvider;
+import mrthomas20121.ae2_tools.data.*;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
+import net.minecraft.data.tags.VanillaBlockTagsProvider;
+import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
@@ -9,6 +14,8 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import java.util.concurrent.CompletableFuture;
 
 @Mod(AE2Tools.MOD_ID)
 public class AE2Tools {
@@ -25,7 +32,18 @@ public class AE2Tools {
 	}
 
 	public void addDatagen(GatherDataEvent event) {
-		event.getGenerator().addProvider(event.includeServer(), new AE2ToolsRecipeProvider(event.getGenerator().getPackOutput()));
+		DataGenerator dataGenerator = event.getGenerator();
+		PackOutput packOutput = dataGenerator.getPackOutput();
+		ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
+		CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
+
+		dataGenerator.addProvider(event.includeClient(), new AE2ToolsItemModelProvider(packOutput, existingFileHelper));
+		dataGenerator.addProvider(event.includeClient(), new AE2ToolsLangProvider(packOutput));
+
+		dataGenerator.addProvider(event.includeServer(), new AE2ToolsRecipeProvider(packOutput));
+		AE2ToolsBlockTagsProvider blockTagsProvider = new AE2ToolsBlockTagsProvider(packOutput, lookupProvider, existingFileHelper);
+		dataGenerator.addProvider(event.includeServer(), blockTagsProvider);
+		dataGenerator.addProvider(event.includeServer(), new AE2ToolsItemTagsProvider(packOutput, lookupProvider, blockTagsProvider.contentsGetter(), existingFileHelper));
 	}
 
 	public void registerTab(BuildCreativeModeTabContentsEvent event) {
@@ -34,18 +52,30 @@ public class AE2Tools {
 
 			event.accept(AE2ToolsItems.NETHER_QUARTZ_EXCAVATOR);
 			event.accept(AE2ToolsItems.NETHER_QUARTZ_HAMMER);
-			event.accept(AE2ToolsItems.CERTUS_QUARTZ_SICKLE);
-			event.accept(AE2ToolsItems.CERTUS_QUARTZ_KNIFE);
+			event.accept(AE2ToolsItems.NETHER_QUARTZ_SICKLE);
+			event.accept(AE2ToolsItems.NETHER_QUARTZ_KNIFE);
+			event.accept(AE2ToolsItems.NETHER_QUARTZ_HELMET);
+			event.accept(AE2ToolsItems.NETHER_QUARTZ_CHESTPLATE);
+			event.accept(AE2ToolsItems.NETHER_QUARTZ_LEGGINGS);
+			event.accept(AE2ToolsItems.NETHER_QUARTZ_BOOTS);
 
 			event.accept(AE2ToolsItems.CERTUS_QUARTZ_EXCAVATOR);
 			event.accept(AE2ToolsItems.CERTUS_QUARTZ_HAMMER);
 			event.accept(AE2ToolsItems.CERTUS_QUARTZ_SICKLE);
 			event.accept(AE2ToolsItems.CERTUS_QUARTZ_KNIFE);
+			event.accept(AE2ToolsItems.CERTUS_QUARTZ_HELMET);
+			event.accept(AE2ToolsItems.CERTUS_QUARTZ_CHESTPLATE);
+			event.accept(AE2ToolsItems.CERTUS_QUARTZ_LEGGINGS);
+			event.accept(AE2ToolsItems.CERTUS_QUARTZ_BOOTS);
 
 			event.accept(AE2ToolsItems.FLUIX_EXCAVATOR);
 			event.accept(AE2ToolsItems.FLUIX_HAMMER);
 			event.accept(AE2ToolsItems.FLUIX_SICKLE);
 			event.accept(AE2ToolsItems.FLUIX_KNIFE);
+			event.accept(AE2ToolsItems.FLUIX_HELMET);
+			event.accept(AE2ToolsItems.FLUIX_CHESTPLATE);
+			event.accept(AE2ToolsItems.FLUIX_LEGGINGS);
+			event.accept(AE2ToolsItems.FLUIX_BOOTS);
 		}
 
 	}

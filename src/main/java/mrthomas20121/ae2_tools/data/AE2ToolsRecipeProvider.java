@@ -45,6 +45,10 @@ public class AE2ToolsRecipeProvider extends RecipeProviderCoFH {
         generateFluixUpgrade(consumer, "hammer", "certus_quartz", "fluix");
         generateFluixUpgrade(consumer, "sickle", "certus_quartz", "fluix");
         generateFluixUpgrade(consumer, "knife", "certus_quartz", "fluix");
+        generateFluixUpgrade(consumer, "helmet", "certus_quartz", "fluix");
+        generateFluixUpgrade(consumer, "chestplate", "certus_quartz", "fluix");
+        generateFluixUpgrade(consumer, "leggings", "certus_quartz", "fluix");
+        generateFluixUpgrade(consumer, "boots", "certus_quartz", "fluix");
     }
 
     private void generateFluixUpgrade(Consumer<FinishedRecipe> consumer, String part, String toolToUpgrade, String toolUpgraded) {
@@ -96,5 +100,48 @@ public class AE2ToolsRecipeProvider extends RecipeProviderCoFH {
                 .pattern("#")
                 .unlockedBy("has_" + itemName, has(tag))
                 .save(consumer);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, reg.get(prefix + "_helmet"))
+                .define('X', tag)
+                .pattern("XXX")
+                .pattern("X X")
+                .unlockedBy("has_" + itemName, has(tag))
+                .save(withConditions(consumer)
+                        // .addCondition(new FlagRecipeCondition(manager, prefix + "_armor"))
+                        .addCondition(new TagExistsRecipeCondition(tag.location()))
+                );
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, reg.get(prefix + "_chestplate"))
+                .define('X', tag)
+                .pattern("X X")
+                .pattern("XXX")
+                .pattern("XXX")
+                .unlockedBy("has_" + itemName, has(tag))
+                .save(withConditions(consumer)
+                        // .addCondition(new FlagRecipeCondition(manager, prefix + "_armor"))
+                        .addCondition(new TagExistsRecipeCondition(tag.location()))
+                );
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, reg.get(prefix + "_leggings"))
+                .define('X', tag)
+                .pattern("XXX")
+                .pattern("X X")
+                .pattern("X X")
+                .unlockedBy("has_" + itemName, has(tag))
+                .save(withConditions(consumer)
+                        // .addCondition(new FlagRecipeCondition(manager, prefix + "_armor"))
+                        .addCondition(new TagExistsRecipeCondition(tag.location()))
+                );
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, reg.get(prefix + "_boots"))
+                .define('X', tag)
+                .pattern("X X")
+                .pattern("X X")
+                .unlockedBy("has_" + itemName, has(tag))
+                .save(withConditions(consumer)
+                        // .addCondition(new FlagRecipeCondition(manager, prefix + "_armor"))
+                        .addCondition(new TagExistsRecipeCondition(tag.location()))
+                );
     }
+
 }

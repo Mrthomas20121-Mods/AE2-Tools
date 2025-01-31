@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "ae2_tools:item/nether_quartz_leggings"
+  }
+}

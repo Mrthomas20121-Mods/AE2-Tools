@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "conditions": [
+    {
+      "type": "cofh_core:tag_exists",
+      "tag": "ae2:all_nether_quartz"
+    }
+  ],
+  "key": {
+    "X": {
+      "tag": "ae2:all_nether_quartz"
+    }
+  },
+  "pattern": [
+    "X X",
+    "XXX",
+    "XXX"
+  ],
+  "result": {
+    "item": "ae2_tools:nether_quartz_chestplate"
+  },
+  "show_notification": true
+}
